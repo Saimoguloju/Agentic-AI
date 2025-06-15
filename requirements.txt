@@ -1,0 +1,27 @@
+# Core MCP (Model Context Protocol) packages
+mcp
+langchain-mcp-adapters
+
+# Web framework for weather server
+aiohttp
+
+# LangChain and LangGraph for AI agent
+langchain
+langgraph
+langchain-groq
+
+# Environment management
+python-dotenv
+
+# Async support
+anyio
+
+# HTTP requests (for API testing)
+requests
+
+# Logging and utilities
+pydantic
+typing-extensions
+
+# Optional: For enhanced debugging and development
+ipython

@@ -1,0 +1,20 @@
+[project]
+name = "agentic-ai"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "aiohttp>=3.12.13",
+    "anyio>=4.9.0",
+    "ipython>=9.3.0",
+    "langchain>=0.3.25",
+    "langchain-groq>=0.3.2",
+    "langchain-mcp-adapters>=0.1.7",
+    "langgraph>=0.4.8",
+    "mcp>=1.9.4",
+    "pydantic>=2.11.7",
+    "python-dotenv>=1.1.0",
+    "requests>=2.32.4",
+    "typing-extensions>=4.14.0",
+]
