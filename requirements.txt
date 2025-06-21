@@ -11,3 +11,7 @@ pydantic
 typing-extensions
 ipython
 langchain_community
+pypdf
+bs4
+arxiv
+pymupdf
