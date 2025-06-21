@@ -16,6 +16,7 @@ dependencies = [
     "langchain-community>=0.3.25",
     "langchain-groq>=0.3.2",
     "langchain-mcp-adapters>=0.1.7",
+    "langchain-text-splitters>=0.3.8",
     "langgraph>=0.4.8",
     "mcp>=1.9.4",
     "openai>=1.88.0",
