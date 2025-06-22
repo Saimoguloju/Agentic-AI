@@ -25,3 +25,12 @@ faiss-cpu
 langchain_chroma
 langserve
 fastapi
+agno
+openai
+duckduckgo-search
+pandas
+lancedb
+tantivy
+yfinance
+groq
+
