@@ -15,6 +15,7 @@ dependencies = [
     "faiss-cpu>=1.11.0",
     "fastapi>=0.115.13",
     "groq>=0.28.0",
+    "ipykernel>=6.29.5",
     "ipython>=9.3.0",
     "lancedb>=0.24.0",
     "langchain>=0.3.26",
