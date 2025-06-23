@@ -1,6 +1,5 @@
 from agno.agent import Agent
 from agno.models.openai import OpenAIChat
-from agno.models.groq import Groq
 from agno.tools.duckduckgo import DuckDuckGoTools
 
 import os
@@ -8,26 +7,24 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Validate API keys
-if not os.getenv("GROQ_API_KEY"):
-    print("Warning: GROQ_API_KEY not found in environment")
+# Validate OpenAI API key
+if not os.getenv("OPENAI_API_KEY"):
+    print("Error: OPENAI_API_KEY not found in environment")
+    print("Please set your OpenAI API key in the .env file or environment variables")
     exit(1)
 
-if not os.getenv("OPENAI_API_KEY"):
-    print("Warning: OPENAI_API_KEY not found in environment")
-
 try:
-    # Option 1: Use the most capable production model
+    # Create agent with OpenAI model
     agent = Agent(
-        model=Groq(id="llama-3.3-70b-versatile"),  # Updated to current model
-        description="You are an assistant. Use the available tools to research and provide comprehensive answers to questions.",
+        model=OpenAIChat(id="gpt-4o"),  # Use GPT-4o for best performance
+        description="You are an intelligent assistant. Use the available tools to research and provide comprehensive answers to questions.",
         tools=[DuckDuckGoTools()],
         markdown=True,
-        show_tool_calls=True,  # Show the tool calls
-        max_loops=3,  # Allow multiple tool calls if needed
+        show_tool_calls=True,  # Show the tool calls for transparency
+        # max_loops=3,  # REMOVED - this parameter is not supported
     )
     
-    # Test with a valid question
+    # Test with a factual question
     print("Testing with FIFA World Cup question...")
     response = agent.run("Who won the 2022 FIFA World Cup?")
     print("Final Answer:")
@@ -35,44 +32,43 @@ try:
     
     print("\n" + "="*50 + "\n")
     
-    # Test with another question
+    # Test with current information
     print("Testing with current news...")
     response = agent.run("What are the latest developments in AI in 2025?")
     print("Final Answer:")
     print(response.content)
     
-except Exception as e:
-    print(f"Error with Groq model: {e}")
+    print("\n" + "="*50 + "\n")
     
-    # Fallback to OpenAI if Groq fails
-    try:
-        print("Trying OpenAI fallback...")
-        agent_fallback = Agent(
-            model=OpenAIChat(id="gpt-4o-mini"),
-            description="You are an assistant please reply based on the question.",
-            tools=[DuckDuckGoTools()],
-            markdown=True
-        )
-        
-        agent_fallback.print_response("Who won the 2022 FIFA World Cup?")
-        
-    except Exception as e2:
-        print(f"Both models failed. Groq: {e}, OpenAI: {e2}")
+    # Test with a more complex research question
+    print("Testing with complex research question...")
+    response = agent.run("What are the key differences between GPT-4 and Claude 3, and which is better for coding tasks?")
+    print("Final Answer:")
+    print(response.content)
+    
+except Exception as e:
+    print(f"Error running agent: {e}")
+    print("Please check your API key and internet connection")
 
-# Alternative models you can try:
+# Alternative OpenAI models you can try:
 """
-Other Groq models to experiment with:
+OpenAI model options:
 
-Production models (stable):
-- Groq(id="llama-3.1-8b-instant")      # Faster, smaller model
-- Groq(id="gemma2-9b-it")              # Google's Gemma model
+Production models:
+- OpenAIChat(id="gpt-4o")              # Most capable, best for complex tasks
+- OpenAIChat(id="gpt-4o-mini")         # Faster and cheaper, good for most tasks
+- OpenAIChat(id="gpt-4-turbo")         # Previous generation, still very capable
+- OpenAIChat(id="gpt-3.5-turbo")       # Fastest and cheapest, basic tasks
 
-Preview models (experimental):
-- Groq(id="qwen-2.5-coder-32b")        # Better for coding tasks
-- Groq(id="qwen-qwq-32b")              # Reasoning-focused
-- Groq(id="deepseek-r1-distill-llama-70b")  # DeepSeek reasoning
+For coding specifically:
+- OpenAIChat(id="gpt-4o")              # Best overall coding performance
+- OpenAIChat(id="gpt-4o-mini")         # Good balance of speed and capability
 
-Vision models (for image + text):
-- Groq(id="llama-3.2-11b-vision-preview")
-- Groq(id="llama-3.2-90b-vision-preview")
+For research tasks:
+- OpenAIChat(id="gpt-4o")              # Best for complex research and analysis
 """
+
+# If you need to control the number of iterations/loops, you might need to:
+# 1. Check the agno documentation for the correct parameter name
+# 2. Or implement your own loop control in the agent.run() calls
+# 3. Or use a different agent configuration method
