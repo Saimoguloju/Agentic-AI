@@ -33,4 +33,5 @@ lancedb
 tantivy
 yfinance
 groq
+crewai[tools]
 
