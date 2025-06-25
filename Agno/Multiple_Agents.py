@@ -20,7 +20,7 @@ if not os.getenv("OPENAI_API_KEY"):
 web_agent = Agent(
     name="Web Agent",
     role="search the web for information",
-    model=OpenAIChat(id="gpt-4o-mini"),  # Using gpt-4o-mini for web search (faster and cost-effective)
+    model=OpenAIChat(id="gpt-4o-mini"),   
     tools=[DuckDuckGoTools()],
     instructions="Always include the sources",
     show_tool_calls=True,
@@ -31,7 +31,7 @@ web_agent = Agent(
 finance_agent = Agent(
     name="Finance Agent",
     role="Get financial data",
-    model=OpenAIChat(id="gpt-4o"),  # Using gpt-4o for complex financial analysis
+    model=OpenAIChat(id="gpt-4o"),   
     tools=[YFinanceTools(
         stock_price=True, 
         analyst_recommendations=True,
@@ -46,7 +46,7 @@ finance_agent = Agent(
 # Agent team coordinator using OpenAI
 agent_team = Agent(
     team=[web_agent, finance_agent],
-    model=OpenAIChat(id="gpt-4o"),  # Using gpt-4o for team coordination and synthesis
+    model=OpenAIChat(id="gpt-4o"),  
     instructions=["Always include sources", "Use tables to display data"],
     show_tool_calls=True,
     markdown=True,
