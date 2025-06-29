@@ -35,3 +35,4 @@ tantivy
 yfinance
 groq
 langchain-tavily
+langgraph-cli[inmem]
