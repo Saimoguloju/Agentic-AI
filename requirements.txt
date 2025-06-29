@@ -14,6 +14,7 @@ langchain_community
 pypdf
 bs4
 arxiv
+wikipedia
 pymupdf
 langchain-text-splitters
 langchain-openai
@@ -33,5 +34,4 @@ lancedb
 tantivy
 yfinance
 groq
-crewai[tools]
-
+langchain-tavily

@@ -33,6 +33,7 @@ dependencies = [
     { name = "langchain-mcp-adapters" },
     { name = "langchain-ollama" },
     { name = "langchain-openai" },
+    { name = "langchain-tavily" },
     { name = "langchain-text-splitters" },
     { name = "langgraph" },
     { name = "langserve" },
@@ -47,6 +48,7 @@ dependencies = [
     { name = "sentence-transformers" },
     { name = "tantivy" },
     { name = "typing-extensions" },
+    { name = "wikipedia" },
     { name = "yfinance" },
 ]
 
@@ -73,6 +75,7 @@ requires-dist = [
     { name = "langchain-mcp-adapters", specifier = ">=0.1.7" },
     { name = "langchain-ollama", specifier = ">=0.3.3" },
     { name = "langchain-openai", specifier = ">=0.3.24" },
+    { name = "langchain-tavily", specifier = ">=0.2.5" },
     { name = "langchain-text-splitters", specifier = ">=0.3.8" },
     { name = "langgraph", specifier = ">=0.4.8" },
     { name = "langserve", specifier = ">=0.3.1" },
@@ -87,6 +90,7 @@ requires-dist = [
     { name = "sentence-transformers", specifier = ">=4.1.0" },
     { name = "tantivy", specifier = ">=0.24.0" },
     { name = "typing-extensions", specifier = ">=4.14.0" },
+    { name = "wikipedia", specifier = ">=1.4.0" },
     { name = "yfinance", specifier = ">=0.2.63" },
 ]
 
@@ -1457,6 +1461,21 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/da/e1/7be9384c5cb6fd6d0466ac6e781e44c3d80081c624faa7a9d2f8bf3a59ba/langchain_openai-0.3.24.tar.gz", hash = "sha256:cec1ab4ce7a8680af1eb11427b4384d2ceb46e9b20ff3f7beb0b0d83cab61a97", size = 687773, upload-time = "2025-06-17T20:20:57.422Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/fc/9b/b8f86d78dbc651decd684ab938a1340e1ad3ba1dbcef805e12db65dee0ba/langchain_openai-0.3.24-py3-none-any.whl", hash = "sha256:3db7bb2964f86636276a8f4bbed4514daf13865b80896e547ff7ea13ce98e593", size = 68950, upload-time = "2025-06-17T20:20:56.09Z" },
+]
+
+[[package]]
+name = "langchain-tavily"
+version = "0.2.5"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "aiohttp" },
+    { name = "langchain" },
+    { name = "langchain-core" },
+    { name = "requests" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/b8/7c/521dc3462ed7940b5f6aafab9308713bff7c4c2f7bb783beaa252a2d9405/langchain_tavily-0.2.5.tar.gz", hash = "sha256:7757693958563bcb98f1063b9e4c5d115babbeab5b36570694845c7c3117695b", size = 20668, upload-time = "2025-06-28T18:42:11.127Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/16/51/78a64038ce575280f5fccea97ed7a37a174a9f0b63516b6368bcf6d560bf/langchain_tavily-0.2.5-py3-none-any.whl", hash = "sha256:b33a0ef7392a48d2db0f4f00958528ecfe55802064692177646a4fb383ca3ebb", size = 24490, upload-time = "2025-06-28T18:42:09.978Z" },
 ]
 
 [[package]]
@@ -3740,6 +3759,16 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/1b/6c/c65773d6cab416a64d191d6ee8a8b1c68a09970ea6909d16965d26bfed1e/websockets-15.0.1-cp313-cp313-win_amd64.whl", hash = "sha256:e09473f095a819042ecb2ab9465aee615bd9c2028e4ef7d933600a8401c79561", size = 176837, upload-time = "2025-03-05T20:02:55.237Z" },
     { url = "https://files.pythonhosted.org/packages/fa/a8/5b41e0da817d64113292ab1f8247140aac61cbf6cfd085d6a0fa77f4984f/websockets-15.0.1-py3-none-any.whl", hash = "sha256:f7a866fbc1e97b5c617ee4116daaa09b722101d4a3c170c787450ba409f9736f", size = 169743, upload-time = "2025-03-05T20:03:39.41Z" },
 ]
+
+[[package]]
+name = "wikipedia"
+version = "1.4.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "beautifulsoup4" },
+    { name = "requests" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/67/35/25e68fbc99e672127cc6fbb14b8ec1ba3dfef035bf1e4c90f78f24a80b7d/wikipedia-1.4.0.tar.gz", hash = "sha256:db0fad1829fdd441b1852306e9856398204dc0786d2996dd2e0c8bb8e26133b2", size = 27748, upload-time = "2014-11-15T15:59:49.808Z" }
 
 [[package]]
 name = "xxhash"
